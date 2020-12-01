@@ -17,7 +17,6 @@ build:
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
-    - numpy >=1.16                           # [build_platform != target_platform]
     - {{ compiler('c') }}
   host:
     - pip
@@ -29,7 +28,6 @@ requirements:
   run:
     - python
     - {{ pin_compatible("numpy") }}
-    - numpy >=1.16
 
 test:
   imports:
