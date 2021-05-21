@@ -11,7 +11,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [py<3.6]
+  skip: true  # [py<37]
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -19,17 +19,16 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - {{ compiler('c') }}
   host:
+    - python
     - pip
     - setuptools_scm
-    - jinja2 >=2.10.3
-    - python
-    - numpy >=1.16
-    - packaging
   run:
     - python
-    - {{ pin_compatible("numpy") }}
+    - numpy >=1.17
 
 test:
+  requires:
+    - pytest-doctestplus
   imports:
     - erfa
 
