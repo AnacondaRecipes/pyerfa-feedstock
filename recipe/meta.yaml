@@ -22,6 +22,8 @@ requirements:
     - python
     - pip
     - setuptools_scm
+    - jinja2 >=2.10.3
+    - numpy >=1.17
     - packaging
   run:
     - python
