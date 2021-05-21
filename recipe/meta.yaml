@@ -22,6 +22,7 @@ requirements:
     - python
     - pip
     - setuptools_scm
+    - packaging
   run:
     - python
     - numpy >=1.17
