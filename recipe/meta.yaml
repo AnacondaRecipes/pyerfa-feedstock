@@ -21,20 +21,25 @@ requirements:
   host:
     - python
     - pip
-    - setuptools_scm
+    - wheel
+    - setuptools >=42
+    - setuptools_scm >=3.4
     - jinja2 >=2.10.3
-    - numpy >=1.17
+    - numpy
     - packaging
+    - toml
   run:
     - python
-    - numpy >=1.17
+    - {{ pin_compatible('numpy') }}
 
 test:
   requires:
     - pytest-doctestplus
+    - pip
   imports:
     - erfa
-
+  commands:
+    - pip check
 
 about:
   home: https://pyerfa.readthedocs.io/
