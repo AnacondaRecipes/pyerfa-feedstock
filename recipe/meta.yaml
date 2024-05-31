@@ -26,6 +26,8 @@ requirements:
     - setuptools_scm >=6.2
     - jinja2 >=2.10.3
     - numpy {{ numpy }}
+    - packaging
+    - toml
   run:
     - python
     - {{ pin_compatible('numpy') }}
