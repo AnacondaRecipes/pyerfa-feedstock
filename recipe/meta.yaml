@@ -24,7 +24,8 @@ requirements:
     - setuptools
     - setuptools_scm >=6.2
     - jinja2 >=2.10.3
-    - numpy {{ numpy }}
+    - numpy 1.22 # [py<311]
+    - numpy {{ numpy }} # [py>=311]
   run:
     - python
     - {{ pin_compatible('numpy') }}
