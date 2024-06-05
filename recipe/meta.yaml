@@ -24,6 +24,8 @@ requirements:
     - setuptools
     - setuptools_scm >=6.2
     - jinja2 >=2.10.3
+    # Build currently fails on python 3.9 & 3.10 without this pinning included.
+    # Also upstream documentation is not accurate when building with numpy 1.
     - numpy 1.22 # [py<311]
     - numpy {{ numpy }} # [py>=311]
   run:
