@@ -21,7 +21,7 @@ requirements:
     - python
     - pip
     - wheel
-    - setuptools
+    - setuptools >=61.2
     - setuptools_scm >=6.2
     - jinja2 >=2.10.3
     # Build currently fails on python 3.9 & 3.10 without this pinning included.
