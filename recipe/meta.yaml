@@ -26,11 +26,11 @@ requirements:
     - jinja2 >=2.10.3
     # Build currently fails on python 3.9 & 3.10 without this pinning included.
     # Also upstream documentation is not accurate when building with numpy 1.
-    - numpy 1.22 # [py<311]
-    - numpy {{ numpy }} # [py>=311]
+    - numpy 2.0 # [py<313]
+    - numpy 2.1 # [py>=313]
   run:
     - python
-    - {{ pin_compatible('numpy') }}
+    - numpy >=1.19.3
 
 test:
   requires:
