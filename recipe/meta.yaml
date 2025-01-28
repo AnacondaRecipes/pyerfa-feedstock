@@ -1,5 +1,5 @@
 {% set name = "pyerfa" %}
-{% set version = "2.0.1.4" %}
+{% set version = "2.0.1.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: acb8a6713232ea35c04bc6e40ac4e461dfcc817d395ef2a3c8051c1a33249dd3
+  sha256: 17d6b24fe4846c65d5e7d8c362dcb08199dc63b30a236aedd73875cc83e1f6c0
 
 build:
   number: 0
@@ -21,16 +21,16 @@ requirements:
     - python
     - pip
     - wheel
-    - setuptools
+    - setuptools >=61.2
     - setuptools_scm >=6.2
     - jinja2 >=2.10.3
     # Build currently fails on python 3.9 & 3.10 without this pinning included.
     # Also upstream documentation is not accurate when building with numpy 1.
-    - numpy 1.22 # [py<311]
-    - numpy {{ numpy }} # [py>=311]
+    - numpy 2.0 # [py<313]
+    - numpy 2.1 # [py>=313]
   run:
     - python
-    - {{ pin_compatible('numpy') }}
+    - numpy >=1.19.3
 
 test:
   requires:
