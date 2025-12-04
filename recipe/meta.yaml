@@ -10,7 +10,7 @@ source:
   sha256: 17d6b24fe4846c65d5e7d8c362dcb08199dc63b30a236aedd73875cc83e1f6c0
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<39]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
@@ -27,7 +27,7 @@ requirements:
     # Build currently fails on python 3.9 & 3.10 without this pinning included.
     # Also upstream documentation is not accurate when building with numpy 1.
     - numpy 2.0 # [py<313]
-    - numpy 2.1 # [py>=313]
+    - numpy >=2.3 # [py>=313]
   run:
     - python
     - numpy >=1.19.3
@@ -41,10 +41,11 @@ test:
     - erfa
   commands:
     - pip check
-    - pytest --pyargs erfa -vv
+    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
+    - pytest -ra -v --tb=short --pyargs erfa
 
 about:
-  home: https://pyerfa.readthedocs.io/
+  home: https://pyerfa.readthedocs.io
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE.rst
@@ -60,7 +61,7 @@ about:
     Astropy project, into a standalone package. It contains the ERFA C source
     code as a git submodule. The wrapping is done with help of the Jinja2
     template engine.
-  doc_url: https://pyerfa.readthedocs.io/
+  doc_url: https://pyerfa.readthedocs.io
   dev_url: https://github.com/liberfa/pyerfa
 
 extra:
